@@ -4,14 +4,12 @@
 static int samePosition(Position first, Position second) {
     return first.row == second.row && first.col == second.col;
 }
-
 static int areKingsAdjacent(Position firstKing, Position secondKing) {
     int rowDifference = abs(firstKing.row - secondKing.row);
     int colDifference = abs(firstKing.col - secondKing.col);
 
     return rowDifference <= 1 && colDifference <= 1;
 }
-
 static Position randomPosition(const Board* board) {
     Position position;
 
@@ -20,7 +18,6 @@ static Position randomPosition(const Board* board) {
 
     return position;
 }
-
 void generateRandomPieces(Board* board, Pieces* pieces) {
     do {
         pieces->king = randomPosition(board);
@@ -37,7 +34,6 @@ void generateRandomPieces(Board* board, Pieces* pieces) {
         areKingsAdjacent(pieces->king, pieces->enemyKing)
     );
 }
-
 void placePieces(Board* board, const Pieces* pieces) {
     clearBoard(board);
 
